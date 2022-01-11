@@ -11,9 +11,9 @@ class Text < ApplicationRecord
   with_options presence: true do
   validates :sentence
   validates :translate
-  
+  validates :type_id
   end
-  validates :type_id, numericality: { other_than: 1 , message: "can't be blank" } 
+  
  
   def self.search(search)
     if search != ""
