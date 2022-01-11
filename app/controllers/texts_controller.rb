@@ -2,7 +2,9 @@ class TextsController < ApplicationController
   before_action :set_text, only: [:show, :edit, :update, :destroy]
 
   def index
+    
     @texts = params[:tag_id].present? ? Tag.find(params[:tag_id]).texts : Text.all
+    
   end
 
   def new
@@ -28,6 +30,7 @@ class TextsController < ApplicationController
     #text_attributes = @text.attributes
     #@text_form = TextForm.new(text_attributes)
     #@text_form.tag_name = @text.tags&.first&.tag_name
+    redirect_to root_path unless current_user.id == @text.user_id
   end
 
   def update
