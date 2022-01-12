@@ -58,10 +58,10 @@
 
 
       <div class='text-registration__field'>
-        <div class='text-registration__field--left'></div>
-         
+        <div class='text-registration__field--left'>
       
-        
+      
+      <div class="btn-field">
         <div class='text-registration__field--right'>
         <% if user_signed_in? && current_user.id == @text.user_id %>
           <%= link_to "編集",  edit_text_path(@text.id), method: :get, class: 'text-registration__action-btn' %>
@@ -76,7 +76,8 @@
          <div class='text-registration__field--right'>
           <%= link_to "戻る", root_path, class: 'text-registration__action-btn'%>
         </div>
-        
+      </div>
+    </div>
     </div>
     <% end %>
 </div>
